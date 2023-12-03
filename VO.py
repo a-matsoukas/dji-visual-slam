@@ -132,21 +132,21 @@ class VisualOdometry():
         q1 = np.float32([ keypoints1[m.queryIdx].pt for m in good ])
         q2 = np.float32([ keypoints2[m.trainIdx].pt for m in good ])
 
-        # return q1, qff2
-
-        draw_params = dict(matchColor = -1, # draw matches in green color
-                singlePointColor = None,
-                matchesMask = None, # draw only inliers
-                flags = 2)
-
-        img3 = cv2.drawMatches(self.images[i], keypoints1, self. images[i-1],keypoints2, good ,None,**draw_params)
-        cv2.imshow("image", img3)
-        cv2.waitKey(0)
-        plt.imshow(img3, 'gray'),plt.show()
-        plt.imshow(self.images[i]),plt.show()
-        plt.imshow(self.images[i-1]),plt.show()
-
         return q1, q2
+
+        # draw_params = dict(matchColor = -1, # draw matches in green color
+        #         singlePointColor = None,
+        #         matchesMask = None, # draw only inliers
+        #         flags = 2)
+
+        # img3 = cv2.drawMatches(self.images[i], keypoints1, self. images[i-1],keypoints2, good ,None,**draw_params)
+        # cv2.imshow("image", img3)
+        # cv2.waitKey(0)
+        # plt.imshow(img3, 'gray'),plt.show()
+        # plt.imshow(self.images[i]),plt.show()
+        # plt.imshow(self.images[i-1]),plt.show()
+
+        # return q1, q2
 
 
         # This function should detect and compute keypoints and descriptors from the i-1'th and i'th image using the class orb object
